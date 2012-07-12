@@ -26,4 +26,19 @@ describe Project do
       project.save.should be_false
     end
   end
+
+  describe "Status" do
+    before(:each) do
+      @valid_params = { name: Faker::Company.name, status: :active }
+    end
+
+    
+    it "should save the status correctly to the db" do
+      project =Project.new(@valid_params)
+
+      project.status.should eq(:active)
+
+    end
+  end
+
 end
