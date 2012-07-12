@@ -1,3 +1,4 @@
 class Project < ActiveRecord::Base
-  # attr_accessible :title, :body
+	validates_presence_of :name, :status
+	attr_accessible :name, :status
 end
