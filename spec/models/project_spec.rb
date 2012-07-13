@@ -14,7 +14,8 @@ describe Project do
   end
   describe "Validations" do
     before(:each) do
-      @valid_params = { name: Faker::Company.name, status: :active }
+      @user = FactoryGirl.create(:user)
+      @valid_params = { name: Faker::Company.name, status: :active, user: @user }
     end
 
     it "should be saved with valid params" do
