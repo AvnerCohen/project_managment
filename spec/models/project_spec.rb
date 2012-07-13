@@ -16,6 +16,11 @@ describe Project do
     before(:each) do
       @valid_params = { name: Faker::Company.name, status: :active }
     end
+
+    it "should be saved with valid params" do
+      project = Project.new(@valid_params)
+      project.save.should be_true
+    end
     it "should not save project with no name" do
       project = Project.new(@valid_params.merge({name: ''}))
       project.save.should be_false
@@ -45,8 +50,8 @@ describe Project do
   describe "Associations" do
 
     it "should have a user" do
-        project =Project.new
-        project.should respond_to(:user)
+      project =Project.new
+      project.should respond_to(:user)
     end
 
   end
