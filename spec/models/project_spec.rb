@@ -32,7 +32,7 @@ describe Project do
       @valid_params = { name: Faker::Company.name, status: :active }
     end
 
-    
+
     it "should save the status correctly to the db" do
       project =Project.new(@valid_params)
 
@@ -40,5 +40,16 @@ describe Project do
 
     end
   end
+
+
+  describe "Associations" do
+
+    it "should have a user" do
+        project =Project.new
+        project.should respond_to(:user)
+    end
+
+  end
+
 
 end
