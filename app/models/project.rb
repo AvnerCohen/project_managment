@@ -1,4 +1,5 @@
 class Project < ActiveRecord::Base
+  belongs_to :user
   validates_presence_of :name, :status
   attr_accessible :name, :status
 
@@ -12,5 +13,5 @@ class Project < ActiveRecord::Base
     write_attribute(:status, STATUS[s])
   end
 
-  
+
 end
