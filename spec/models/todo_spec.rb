@@ -13,8 +13,7 @@ describe Todo do
       todo.save.should be_false
     end
 
-    it "should  save a TODO with a title" do
-
+    it "should save a TODO with a title" do
       todo = @project.todos.new(title: "Moshe")
       todo.save.should be_true
     end

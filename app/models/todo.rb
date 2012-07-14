@@ -1,4 +1,5 @@
 class Todo < ActiveRecord::Base
+belongs_to :project
   #attr_accessible :title, :body
   attr_accessible :title
 
