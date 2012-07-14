@@ -10,5 +10,7 @@ class User < ActiveRecord::Base
   :subdomain, :first_name, :last_name
   # attr_accessible :title, :body
 
-  validates_uniqueness_of :subdomain
+  validates_uniqueness_of :subdomain  
+
+  has_many :projects
 end
