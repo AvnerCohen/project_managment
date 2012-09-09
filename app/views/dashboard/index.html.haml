@@ -1,2 +1,8 @@
-#moshe
-	Thi is your dashboard
+!!! 5
+%html
+  %body
+    %section
+      %article
+        %ul
+          -@current_user.projects.each do |project|
+            %li= project.name
