@@ -25,6 +25,7 @@ end
 group :development, :test do
   gem "rspec"	
   gem "rspec-rails"
+  gem 'rb-fsevent', '~> 0.9.1'
   gem "vcr"
   gem "faker"
   gem "spork-rails"
