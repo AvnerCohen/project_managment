@@ -37,6 +37,18 @@ describe DashboardController do
 		end
 
 		describe "When user is not subdomain owner" do
+			before (:each) do
+				@not_owner = FactoryGirl.create(:user, subdomain: "avner2")
+
+				sign_in  @not_owner
+				@request.host = "avner.manage.local"
+				@request.env["HTTP_REFERER"] = @request.host
+
+			end
+			it "Should redirect to login page" do
+				get :index
+				response.should be_redirect
+			end
 		end
 	end
 end

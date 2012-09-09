@@ -7,6 +7,18 @@ class ApplicationController < ActionController::Base
 			redirect_to user_session_url
 		end
 	end
+
+	def verify_subdomain_ownership
+		@subdomain_owner  = User.where(subdomain: request.subdomain).first
+
+		if current_user && current_user != @subdomain_owner
+			flash[:error] = "You are not the owner of this subdomain"
+			redirect_to :root
+		end
+
+
+
+	end
 	def after_sign_in_path_for(resource)
 		if resource.is_a? User
 			return root_url(subdomain: resource.subdomain)
